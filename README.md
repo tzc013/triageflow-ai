@@ -426,15 +426,6 @@ The suite validates:
 
 ---
 
-## 🤝 Contributing
-
-This is a private/internal project. If you're a collaborator:
-
-1. Create a feature branch: `git checkout -b feat/your-feature`
-2. Commit with conventional commits: `git commit -m "feat: add X"`
-3. Push: `git push origin feat/your-feature`
-4. Open a Pull Request against `main`
-
 ### Commit Convention
 
 | Prefix | Meaning |
