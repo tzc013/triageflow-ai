@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-charcoal-base: #0a0b0c;
+    --color-charcoal-card: #111315;
+    --color-charcoal-elevated: #16181b;
+    --color-border-subtle: #1b1e21;
+    --color-border-default: #22262a;
+    
+    --color-text-primary: #f6f8fa;
+    --color-text-secondary: #b0b8c1;
+    --color-text-muted: #656e77;
+
+    --color-sage-primary: #7fa48b;
+    --color-sage-subtle: #24342a;
+    --color-sage-surface: #17221b;
+
+    --color-green-accent: #22c55e;
+    --color-green-subtle: #14532b;
+
+    --color-red-alert: #ef4444;
+    --color-red-surface: #451315;
+  }
+
+  body {
+    background-color: #0a0b0c;
+    color: #f6f8fa;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars in charcoal/sage */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #22262a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #354b3d;
+}
+
+/* Sage & Green Subtle Accents */
+.sage-glow-sm {
+  box-shadow: 0 0 16px -4px rgba(127, 164, 139, 0.18);
+}
+
+.sage-glow-lg {
+  box-shadow: 0 0 32px -8px rgba(127, 164, 139, 0.28);
+}
+
+.green-glow-sm {
+  box-shadow: 0 0 16px -4px rgba(34, 197, 94, 0.20);
+}
+
+.red-alert-glow {
+  box-shadow: 0 0 24px -4px rgba(239, 68, 68, 0.35);
+}
+
+/* Subtle animation pulses */
+@keyframes sage-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+.animate-sage-pulse {
+  animation: sage-pulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Cinematic Shimmer Skeletons & Glow Bars */
+@keyframes cinematic-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.cinematic-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+.cinematic-skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(127, 164, 139, 0.12) 50%,
+    rgba(255, 255, 255, 0.04) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: cinematic-shimmer 2.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cinematic-skeleton-teal {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(14, 16, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cinematic-skeleton-teal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(45, 212, 191, 0.16) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: cinematic-shimmer 2.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes cinematic-scanline {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.cinematic-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45, 212, 191, 0.7) 50%, transparent 100%);
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+  animation: cinematic-scanline 3s linear infinite;
+}

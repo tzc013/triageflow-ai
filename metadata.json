@@ -1,0 +1,6 @@
+{
+  "name": "TRIAGEFLOW AI",
+  "description": "Every email. The right action. AI-powered email intelligence that knows when to answer — and when to escalate.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
